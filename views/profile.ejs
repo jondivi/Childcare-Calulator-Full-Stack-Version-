@@ -1,0 +1,62 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row mt-3">
+      <div class="col-8">
+          <div>
+              <p>Welcome back, <%= user.userName %></p>
+              <!-- <p><strong>Email</strong>: <%= user.email %></p> -->
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div>
+          <div class="mt-5">
+            <h2>Calculate an expense</h2>
+            <form action="/calculation/createCalculation" enctype="multipart/form-data" method="POST">
+              <div class="mb-5">
+                  <label for="eventName" class="form-label">Event</label>
+                  <input type="text" class="form-control" id="eventName" name="eventName">
+              </div>
+              <div class="mb-5">
+                <label for="dateOfEvent" class="form-label">Date</label>
+                <input type="date" class="form-control" id="dateOfEvent" name="dateOfEvent">
+              </div>
+              <div class="mb-5">
+                <label for="hoursStart" class="form-label">Start Time</label>
+                <input type="time" class="form-control" id="hoursStart" name="hoursStart">
+              </div>
+              <div class="mb-5">
+                <label for="hoursEnd" class="form-label">End Time</label>
+                <input type="time" class="form-control" id="hoursEnd" name="hoursEnd">
+              </div>
+              <div class="mb-5">
+                <label for="amountUSD" class="form-label">Rate</label>
+                <input type="number" class="form-control" id="amountUSD" name="amountUSD" placeholder="USD">
+              </div>
+              <!-- <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div> -->
+              <button type="submit" class="btn btn-primary" value="Upload">Calculate</button>
+            </form>
+          </div>
+      </div>
+      
+      </div>  
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-6">
+    <ul class="row list-unstyled">
+      <% for(var i=0; i<calculation.length; i++) {%>
+        <li class="col-6 justify-content-between mt-5">
+          <a href="/calculation/<%= calculation[i]._id%>">
+            <h2><%= calculation[i].eventName%></h2></a>
+            <p><%= calculation[i].dateOfEvent%></p>
+            <p><%= calculation[i].hoursStart%></p>
+            <p><%= calculation[i].hoursEnd%></p>
+            <p><%= calculation[i].amountUSD%></p>
+        </li>
+      <% } %>
+    </ul>
+  </div>  
+</div>
+<%- include('partials/footer') -%>

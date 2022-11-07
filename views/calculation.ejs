@@ -6,21 +6,21 @@
       <!-- <h2><%= calculation.eventName %></h2> -->
       <img class="img-fluid" src="<%= calculation.image%>" />
       <div class="row justify-content-between">
-        <form
+        <!-- <form
           class="col-1"
           action="/calculation/likeCalculation/<%= calculation.id %>?_method=PUT"
           method="POST"
         >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
+          <button class="btn fa fa-heart" type="submit"></button>
         </form>
         <h3 class="col-3">Likes: <%= calculation.totalUSD %></h3>
-        <%if(calculation.user == user.id){ %>
+        <%if(calculation.user == user.id){ %> -->
         <form
           action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
           method="POST"
           class="col-3"
         >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+          <button class="btn fa fa-trash" type="submit"></button>
         </form>
         <%}%>
       </div>

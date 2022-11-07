@@ -1,14 +1,19 @@
+
 <%- include('partials/header') -%>
+
+
+
+
+
 <div class="container">
-  <div class="row mt-3">
-      <div class="col-8">
+  <div class="row mt-2">
+      <div class="col-12">
           <div>
               <p>Welcome back, <%= user.userName %></p>
               <!-- <p><strong>Email</strong>: <%= user.email %></p> -->
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>  
           </div>
-          <div class="mt-5">
-            <h2>Calculate an expense</h2>
+         
             <form action="/calculation/createCalculation" enctype="multipart/form-data" method="POST">
               <div class="mb-5">
                   <label for="eventName" class="form-label">Event</label>
@@ -30,33 +35,41 @@
                 <label for="amountUSD" class="form-label">Rate</label>
                 <input type="number" class="form-control" id="amountUSD" name="amountUSD" placeholder="USD">
               </div>
-              <!-- <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div> -->
-              <button type="submit" class="btn btn-primary" value="Upload">Calculate</button>
+              
+               <button type="submit" class="btn btn-primary" value="Upload">Calculate</button> 
             </form>
-          </div>
-      </div>
-      
+
       </div>  
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="col-6">
-    <ul class="row list-unstyled">
+
+  </div> 
+
+   
+</div> 
+
+<div>
+  <div>
+    <ul>
+      
       <% for(var i=0; i<calculation.length; i++) {%>
-        <li class="col-6 justify-content-between mt-5">
           <a href="/calculation/<%= calculation[i]._id%>">
-            <h2><%= calculation[i].eventName%></h2></a>
-            <p><%= calculation[i].dateOfEvent%></p>
-            <p><%= calculation[i].hoursStart%></p>
-            <p><%= calculation[i].hoursEnd%></p>
-            <p><%= calculation[i].amountUSD%></p>
-        </li>
+          <td><%= calculation[i].eventName%></td>
+          <td><%=calculation[i].dateOfEvent%></td>
+          <td><%= calculation[i].hoursStart%></td>
+          <td><%= calculation[i].hoursEnd%></td>
+          <td>$<%= calculation[i].amountUSD%></td></a>
+          <td><form action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
+          method="POST" class="col-3">
+          <button class=" del btn fa fa-trash" type="submit"></button>
+        </form></td>
+                
+        </tr>
+      
+
+         
       <% } %>
     </ul>
   </div>  
 </div>
-<%- include('partials/footer') -%>
+<script src="/public/js/main.js"></script>
+
+

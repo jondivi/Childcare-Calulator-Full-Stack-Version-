@@ -6,14 +6,15 @@
 
 
 <div class="container">
-  <div class="row mt-2">
-      <div class="col-12">
+  <div class="row mt-5">
+      <div class="col-6">
           <div>
               <p>Welcome back, <%= user.userName %></p>
               <!-- <p><strong>Email</strong>: <%= user.email %></p> -->
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>  
           </div>
-         
+
+          <div class="mt-5">
             <form action="/calculation/createCalculation" enctype="multipart/form-data" method="POST">
               <div class="mb-5">
                   <label for="eventName" class="form-label">Event</label>
@@ -34,17 +35,25 @@
               <div class="mb-5">
                 <label for="amountUSD" class="form-label">Rate</label>
                 <input type="number" class="form-control" id="amountUSD" name="amountUSD" placeholder="USD">
-              </div>
-              
+              </div> 
                <button type="submit" class="btn btn-primary" value="Upload">Calculate</button> 
             </form>
+          </div>
+      </div>
+      <div class="col-2">
+        <ul class="row list-unstyled">
+          
+
+          
+            <li class="col-6 justify-content-between mt-5">
+            <a href=""></a>
 
       </div>  
-
   </div> 
-
-   
 </div> 
+
+
+
 
 <div>
   <div>
@@ -52,24 +61,22 @@
       
       <% for(var i=0; i<calculation.length; i++) {%>
           <a href="/calculation/<%= calculation[i]._id%>">
-          <td><%= calculation[i].eventName%></td>
-          <td><%=calculation[i].dateOfEvent%></td>
-          <td><%= calculation[i].hoursStart%></td>
-          <td><%= calculation[i].hoursEnd%></td>
-          <td>$<%= calculation[i].amountUSD%></td></a>
-          <td><form action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
+            <li><%=calculation[i].dateOfEvent%></li>
+            <li><%= calculation[i].hoursStart%></li>
+            <li><%= calculation[i].hoursEnd%></li>
+            <li>$<%= calculation[i].amountUSD%></li>
+            <li><%= calculation[i].eventName%></li></a>
+            <br>
+
+        <!-- <form action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
           method="POST" class="col-3">
           <button class=" del btn fa fa-trash" type="submit"></button>
-        </form></td>
-                
-        </tr>
-      
-
-         
+        </form>         -->
       <% } %>
+      
     </ul>
   </div>  
 </div>
-<script src="/public/js/main.js"></script>
+<!-- <script src="/public/js/main.js"></script> -->
 
 

@@ -22,7 +22,8 @@ module.exports = {
       //http://localhost:2121/post/631a7f59a3e56acfc7da286f
       //id === 631a7f59a3e56acfc7da286f
       const calculation = await Calculation.findById(req.params.id);
-      res.render("calculation.ejs", { calculation: calculation, user: req.user});
+      res.render("calculation.ejs", { calculation: calculation, user: req.user,
+      });
     } catch (err) {
       console.log(err);
     }

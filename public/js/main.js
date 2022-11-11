@@ -1,9 +1,6 @@
 
-// document.querySelector('.calculcate').addEventListener('click',howMuch)
-
 // Get all buttons as a NodeList
 const elBtn = document.querySelectorAll('.calcBtn')
-//From that array of elements lets check to see if any of them are clicked
 
 // Convert buttons NodeList to an array
 let arrElBtn = Array.from(elBtn).forEach(el => el.addEventListener('click', calcForRow))
@@ -73,4 +70,11 @@ function calcEventPrice(hoursStart, hoursEnd, hourlyRate){
   console.log(totalForDay, ':total')
         
 return totalForDay
+document.querySelectorAll('.total').innerText= `$${totalForDay}`
+
 }
+
+// //inserts information in the DOM so the user can view it
+
+  // document.querySelector('.calculcate').innerText= `$${totalForDay}`
+  // console.log(`On ${dayOfThWeek} we spent ${totalTime} hours at ${eventActivity}, for a total of  $${totalForDay}`)

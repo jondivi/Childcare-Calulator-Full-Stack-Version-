@@ -47,12 +47,15 @@
           <!-- table row (first) -->
           <tr bgcolor="grey" align="center">
             <!-- table heading -->
+            <!-- <th width="100"></th> -->
             <th width="100">Name</th>
             <th width="100">Date</th>
             <th width="100">Start Time<br>(24 hours)</th>
             <th width="100">End Time<br>(24 hours)</th>
             <th width="100">Rate (USD)</th>
+            <th width="100">Calculate</th>
             <th width="100">Total</th>
+
 
           </tr>
           <!-- table row (second) -->
@@ -60,13 +63,18 @@
           <tr bgcolor="lightgrey" align="center">        
            
             <!-- table data --> 
-            <a href="/calculation/<%= calculation[i]._id%>"> 
-            <td class="eventName" id="eventName"><%= calculation[i].eventName %></td>
+            <a href="/calculation/<%= calculation[i]._id%>">
+            <!-- <th><a href="/calculation/<%= calculation[i]._id%>">Event Link</a></th>  -->
+            <td class="eventName" id="eventName"><a href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
             <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
             <td class="startTime"><%= calculation[i].hoursStart %></td>
             <td class="endTime"><%= calculation[i].hoursEnd %></td>
             <td class="rate"><%= calculation[i].amountUSD %></td>
-            <td class="calculate"><button class="calcBtn"><%= calculation[i].totalUSD %></button></td>
+            <td class="calcBtn"><button class="btn btn-primary"></button></td>
+            <td class="total"><%= calculation[i].totalUSD %></td>
+
+
+            <!-- <td class="calcBtn"><button class="btn btn-primary"><%= calculation[i].totalUSD %></button></td> -->
           </tr>
           <% } %>
           
@@ -115,7 +123,7 @@
 
 
 <div>
-    <ul>  
+    <!-- <ul>  
       <% for(var i=0; i<calculation.length; i++) {%>
           <a href="/calculation/<%= calculation[i]._id%>">
             <li><%= calculation[i].eventName%></li>
@@ -125,10 +133,10 @@
             <li>$<%= calculation[i].amountUSD%></li>
           </a>
       <% } %>
-    </ul>
+    </ul> -->
   </div>  
 </div>
-<!-- <%- include('partials/footer') -%> -->
+<%- include('partials/footer') -%>
 
 <script src="/public/js/main.js"></script>
 

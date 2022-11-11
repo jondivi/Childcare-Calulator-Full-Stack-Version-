@@ -61,12 +61,12 @@
            
             <!-- table data --> 
             <a href="/calculation/<%= calculation[i]._id%>"> 
-            <td class="eN" id="eventName"><%= calculation[i].eventName %></td>
+            <td class="eventName" id="eventName"><%= calculation[i].eventName %></td>
             <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
             <td class="startTime"><%= calculation[i].hoursStart %></td>
             <td class="endTime"><%= calculation[i].hoursEnd %></td>
             <td class="rate"><%= calculation[i].amountUSD %></td>
-            <td class="calculcate"><button><%= calculation[i].totalUSD %></button></td>
+            <td class="calculate"><button class="calcBtn"><%= calculation[i].totalUSD %></button></td>
           </tr>
           <% } %>
           

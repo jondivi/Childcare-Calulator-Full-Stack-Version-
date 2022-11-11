@@ -14,41 +14,100 @@
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>  
           </div>
 
-          <div class="mt-5">
+          <div class="mt-2">
             <form action="/calculation/createCalculation" enctype="multipart/form-data" method="POST">
-              <div class="mb-5">
+              <div class="mb-2">
                   <label for="eventName" class="form-label">Event</label>
                   <input type="text" class="form-control" id="eventName" name="eventName">
               </div>
-              <div class="mb-5">
+              <div class="mb-2">
                 <label for="dateOfEvent" class="form-label">Date</label>
                 <input type="date" class="form-control" id="dateOfEvent" name="dateOfEvent">
               </div>
-              <div class="mb-5">
+              <div class="mb-2">
                 <label for="hoursStart" class="form-label">Start Time</label>
                 <input type="time" class="form-control" id="hoursStart" name="hoursStart">
               </div>
-              <div class="mb-5">
+              <div class="mb-2">
                 <label for="hoursEnd" class="form-label">End Time</label>
                 <input type="time" class="form-control" id="hoursEnd" name="hoursEnd">
               </div>
-              <div class="mb-5">
-                <label for="amountUSD" class="form-label">Rate</label>
+              <div class="mb-2">
+                <label for="amountUSD" class="form-label">Rate (Per Hour)</label>
                 <input type="number" class="form-control" id="amountUSD" name="amountUSD" placeholder="USD">
-              </div> 
-               <button type="submit" class="btn btn-primary" value="Upload">Calculate</button> 
+              </div class="mb-2"> 
+               <button type="submit" class="btn btn-primary" value="Upload">Upload</button> 
             </form>
           </div>
       </div>
-      <div class="col-2">
-        <ul class="row list-unstyled">
+      <div>
+        <!-- database information -->
+
+        <table width="1000">
+          <!-- table row (first) -->
+          <tr bgcolor="grey" align="center">
+            <!-- table heading -->
+            <th width="100">Name</th>
+            <th width="100">Date</th>
+            <th width="100">Start Time<br>(24 hours)</th>
+            <th width="100">End Time<br>(24 hours)</th>
+            <th width="100">Rate (USD)</th>
+            <th width="100">Total</th>
+
+          </tr>
+          <!-- table row (second) -->
+          <% for(var i=0; i<calculation.length; i++) {%>
+          <tr bgcolor="lightgrey" align="center">        
+           
+            <!-- table data --> 
+            <a href="/calculation/<%= calculation[i]._id%>"> 
+            <td class="eN" id="eventName"><%= calculation[i].eventName %></td>
+            <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
+            <td class="startTime"><%= calculation[i].hoursStart %></td>
+            <td class="endTime"><%= calculation[i].hoursEnd %></td>
+            <td class="rate"><%= calculation[i].amountUSD %></td>
+            <td class="calculcate"><button><%= calculation[i].totalUSD %></button></td>
+          </tr>
+          <% } %>
           
 
-          
-            <li class="col-6 justify-content-between mt-5">
-            <a href=""></a>
+           <!-- table row (second) -->
+           <!-- <% for(var i=0; i<calculation.length; i++) {%> -->
+              <!-- <tr bgcolor="lightgrey" align="center"> -->
+                <!-- table data --> 
+                <!-- <th><input type="checkbox" class="checkbox" id="checkbox"></th>             -->
+                <!-- <input type="checkbox" value="yes" class="eventName" id="eventName"><a id="seventName"> -->
+                <!-- <td class='eventName' align="left"><%= calculation[i].eventName %></td> -->
+                <!-- <td class='eventName' align="left"><a href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
+                <td class="checkbox"><%= calculation[i].dateOfEvent %></td>
+                <td class="checkbox"><%= calculation[i].hoursStart %></td>
+                <td class="checkbox"><%= calculation[i].hoursEnd %></td>
+                <td class="checkbox"><%= calculation[i].amountUSD %></td>
+                <td class="checkbox" id="total" ></td> -->
+                <!-- <td><button id="calculate" class="btn btn-primary">Calculate</button></td> -->
+            <!-- </tr> -->
+            <!-- <% } %> -->
+            <!-- <div>
+              <button class='calculate' id="calculate" class="btn btn-primary">Calculate</button> 
+            </div> -->
 
-      </div>  
+            <!-- table row (second) -->
+          <!-- <% for(var i=0; i<calculation.length; i++) {%>
+            <tr bgcolor="lightgrey" align="center">         -->
+             
+              <!-- table data --> 
+              <!-- <a href="/calculation/<%= calculation[i]._id%>"> 
+              <td class="eventName" id="eventName"><a id="seventName"href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
+              <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
+              <td class="startTime"><%= calculation[i].hoursStart %></td>
+              <td class="endTime"><%= calculation[i].hoursEnd %></td>
+              <td class="rate"><%= calculation[i].amountUSD %></td>
+              <td class="calculcate"><button><%= calculation[i].totalUSD %></button></td>
+            </tr>
+            <% } %> -->
+        </table>
+      </div> 
+      
   </div> 
 </div> 
 
@@ -56,27 +115,25 @@
 
 
 <div>
-  <div>
-    <ul>
-      
+    <ul>  
       <% for(var i=0; i<calculation.length; i++) {%>
           <a href="/calculation/<%= calculation[i]._id%>">
+            <li><%= calculation[i].eventName%></li>
             <li><%=calculation[i].dateOfEvent%></li>
             <li><%= calculation[i].hoursStart%></li>
             <li><%= calculation[i].hoursEnd%></li>
             <li>$<%= calculation[i].amountUSD%></li>
-            <li><%= calculation[i].eventName%></li></a>
-            <br>
-
-        <!-- <form action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
-          method="POST" class="col-3">
-          <button class=" del btn fa fa-trash" type="submit"></button>
-        </form>         -->
+          </a>
       <% } %>
-      
     </ul>
   </div>  
 </div>
-<!-- <script src="/public/js/main.js"></script> -->
+<!-- <%- include('partials/footer') -%> -->
+
+<script src="/public/js/main.js"></script>
+
+
+
+
 
 

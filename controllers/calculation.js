@@ -43,7 +43,7 @@ module.exports = {
         hoursEnd: req.body.hoursEnd,
         amountUSD: req.body.amountUSD,
         hoursSpent: 0,
-        totalUSD: 0,
+        totalUSD: '',
         // likes: 0,
         user: req.user.id,
       });

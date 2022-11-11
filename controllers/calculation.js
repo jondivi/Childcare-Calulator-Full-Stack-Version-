@@ -22,7 +22,8 @@ module.exports = {
       //http://localhost:2121/post/631a7f59a3e56acfc7da286f
       //id === 631a7f59a3e56acfc7da286f
       const calculation = await Calculation.findById(req.params.id);
-      res.render("calculation.ejs", { calculation: calculation, user: req.user});
+      res.render("calculation.ejs", { calculation: calculation, user: req.user,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -42,7 +43,7 @@ module.exports = {
         hoursEnd: req.body.hoursEnd,
         amountUSD: req.body.amountUSD,
         hoursSpent: 0,
-        totalUSD: 0,
+        totalUSD: '',
         // likes: 0,
         user: req.user.id,
       });

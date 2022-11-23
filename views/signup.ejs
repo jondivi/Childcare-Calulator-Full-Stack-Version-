@@ -1,39 +1,91 @@
-<%- include('partials/header') -%>
-    <main class="container">
-        <div class="row justify-content-center">
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Childcare Calculator</title>
+		<link
+		  rel="icon"
+		  type="image/png"
+		  sizes="32x32"
+		  href="/imgs/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="/public/css/main.css" />
+		<noscript><link rel="stylesheet" href="/public/css/noscript.css" /></noscript>
+	</head>
+  <body class="is-preload">	
+	  <!-- Wrapper -->
+		<div id="wrapper">
+		  <!-- Header -->
+			<header id="header">
+				<div class="inner">
+				    <!-- Logo -->
+					<a href="/profile" class="logo"><span class="symbol" class="title">Childcare Calculator</span></a>
+	    		</div>
+			</header>
+      <!-- Main -->
+      <div id="main">
+				<div class="inner">
             <section class="col-6 mt-5">
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
-                        <div class="alert alert-danger"><%= el.msg %></div>
+                      <div class="alert alert-danger"><%= el.msg %></div>
                     <% }) %>    
                 <% } %>
                 <% if (locals.messages.info) { %>
                     <% messages.info.forEach( el => { %>
-                        <div class="alert alert-info"><%= el.msg %></div>
+                      <div class="alert alert-info"><%= el.msg %></div>
                     <% }) %>    
                 <% } %>
                 <form action="/signup" method="POST">
-                    <div class="mb-3">
-                        <label for="userName" class="form-label">User Name</label>
-                        <input type="text" class="form-control" id="userName" name="userName">
-                      </div>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                  <div class="mb-3">
+                    <label for="userName" class="form-label">User Name</label>
+                    <input type="text" class="form-control" id="userName" name="userName">
                     </div>
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password" name="password">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                    <div id="emailHelp" class="form-text"><em>Your information will never be shared.</em></div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                  </div>
+                  <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
                     </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
-                      </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>	
             </section>
         </div>
-    </main>
+      </div>
+      
+      
+      <!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<section>
+						<ul class="icons">
+							<li><a href="https://twitter.com/Jon_Divi" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/jondivi/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/jondivi" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="mailto:jonathan.divi@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy;2022, Jon Divi</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</section>
+				</div>
+			</footer>
+		</div>
+	</body>
+    <!-- Scripts -->
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/browser.min.js"></script>
+    <script src="/public/js/breakpoints.min.js"></script>
+    <script src="/public/js/util.js"></script>
+    <script src="/public/js/mainDesign.js"></script>
+</html>
 
-<%- include('partials/footer') -%>

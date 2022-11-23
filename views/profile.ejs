@@ -1,147 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Childcare Calculator</title>
+		<link
+		  rel="icon"
+		  type="image/png"
+		  sizes="32x32"
+		  href="/imgs/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="/public/css/main.css" />
+		<noscript><link rel="stylesheet" href="/public/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">	
+	  <!-- Wrapper -->
+		<div id="wrapper">
+		  <!-- Header -->
+			<header id="header">
+				<div class="inner">
+				<!-- Logo -->
+					<a href="/profile" class="logo"><span class="symbol" class="title">Childcare Calculator</span></a>
+					
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu"></a></li>
+						</ul>
+					</nav>
+	    		</div>
+			</header>
+			
 
-<%- include('partials/header') -%>
-
-
-
-
-
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p>Welcome back, <%= user.userName %></p>
-              <!-- <p><strong>Email</strong>: <%= user.email %></p> -->
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>  
-          </div>
-
-          <div class="mt-2">
-            <form action="/calculation/createCalculation" enctype="multipart/form-data" method="POST">
-              <div class="mb-2">
-                  <label for="eventName" class="form-label">Event</label>
-                  <input type="text" class="form-control" id="eventName" name="eventName">
-              </div>
-              <div class="mb-2">
-                <label for="dateOfEvent" class="form-label">Date</label>
-                <input type="date" class="form-control" id="dateOfEvent" name="dateOfEvent">
-              </div>
-              <div class="mb-2">
-                <label for="hoursStart" class="form-label">Start Time</label>
-                <input type="time" class="form-control" id="hoursStart" name="hoursStart">
-              </div>
-              <div class="mb-2">
-                <label for="hoursEnd" class="form-label">End Time</label>
-                <input type="time" class="form-control" id="hoursEnd" name="hoursEnd">
-              </div>
-              <div class="mb-2">
-                <label for="amountUSD" class="form-label">Rate (Per Hour)</label>
-                <input type="number" class="form-control" id="amountUSD" name="amountUSD" placeholder="USD">
-              </div class="mb-2"> 
-               <button type="submit" class="btn btn-primary" value="Upload">Upload</button> 
-            </form>
-          </div>
-      </div>
-      <div>
-        <!-- database information -->
-
-        <table width="1000">
-          <!-- table row (first) -->
-          <tr bgcolor="grey" align="center">
-            <!-- table heading -->
-            <!-- <th width="100"></th> -->
-            <th width="100">Name</th>
-            <th width="100">Date</th>
-            <th width="100">Start Time<br>(24 hours)</th>
-            <th width="100">End Time<br>(24 hours)</th>
-            <th width="100">Rate (USD)</th>
-            <th width="100">Calculate</th>
-            <th width="100">Total</th>
+			<!-- Menu -->
+        	<section>
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="/logout">Logout</a></li>          
+					</ul>
+				</nav>
+        	</section>
 
 
-          </tr>
-          <!-- table row (second) -->
-          <% for(var i=0; i<calculation.length; i++) {%>
-          <tr bgcolor="lightgrey" align="center">        
-           
-            <!-- table data --> 
-            <a href="/calculation/<%= calculation[i]._id%>">
-            <!-- <th><a href="/calculation/<%= calculation[i]._id%>">Event Link</a></th>  -->
-            <td class="eventName" id="eventName"><a href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
-            <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
-            <td class="startTime"><%= calculation[i].hoursStart %></td>
-            <td class="endTime"><%= calculation[i].hoursEnd %></td>
-            <td class="rate"><%= calculation[i].amountUSD %></td>
-            <td class="calcBtn"><button class="btn btn-primary"></button></td>
-            <td id='total' class="total"><%= calculation[i].totalUSD %></td>
+        	<!-- Main -->
+        	<div id="main">
+        		<div class="inner">
+					<div>
+						<p>Welcome back, <%= user.userName %>.</p>
+					</div>
 
-
-            <!-- <td class="calcBtn"><button class="btn btn-primary"><%= calculation[i].totalUSD %></button></td> -->
-          </tr>
-          <% } %>
-          
-
-           <!-- table row (second) -->
-           <!-- <% for(var i=0; i<calculation.length; i++) {%> -->
-              <!-- <tr bgcolor="lightgrey" align="center"> -->
-                <!-- table data --> 
-                <!-- <th><input type="checkbox" class="checkbox" id="checkbox"></th>             -->
-                <!-- <input type="checkbox" value="yes" class="eventName" id="eventName"><a id="seventName"> -->
-                <!-- <td class='eventName' align="left"><%= calculation[i].eventName %></td> -->
-                <!-- <td class='eventName' align="left"><a href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
-                <td class="checkbox"><%= calculation[i].dateOfEvent %></td>
-                <td class="checkbox"><%= calculation[i].hoursStart %></td>
-                <td class="checkbox"><%= calculation[i].hoursEnd %></td>
-                <td class="checkbox"><%= calculation[i].amountUSD %></td>
-                <td class="checkbox" id="total" ></td> -->
-                <!-- <td><button id="calculate" class="btn btn-primary">Calculate</button></td> -->
-            <!-- </tr> -->
-            <!-- <% } %> -->
-            <!-- <div>
-              <button class='calculate' id="calculate" class="btn btn-primary">Calculate</button> 
-            </div> -->
-
-            <!-- table row (second) -->
-          <!-- <% for(var i=0; i<calculation.length; i++) {%>
-            <tr bgcolor="lightgrey" align="center">         -->
-             
-              <!-- table data --> 
-              <!-- <a href="/calculation/<%= calculation[i]._id%>"> 
-              <td class="eventName" id="eventName"><a id="seventName"href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
-              <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
-              <td class="startTime"><%= calculation[i].hoursStart %></td>
-              <td class="endTime"><%= calculation[i].hoursEnd %></td>
-              <td class="rate"><%= calculation[i].amountUSD %></td>
-              <td class="calculcate"><button><%= calculation[i].totalUSD %></button></td>
-            </tr>
-            <% } %> -->
-        </table>
-      </div> 
-      
-  </div> 
-</div> 
-
-
-
-
-<div>
-    <!-- <ul>  
-      <% for(var i=0; i<calculation.length; i++) {%>
-          <a href="/calculation/<%= calculation[i]._id%>">
-            <li><%= calculation[i].eventName%></li>
-            <li><%=calculation[i].dateOfEvent%></li>
-            <li><%= calculation[i].hoursStart%></li>
-            <li><%= calculation[i].hoursEnd%></li>
-            <li>$<%= calculation[i].amountUSD%></li>
-          </a>
-      <% } %>
-    </ul> -->
-  </div>  
-</div>
-<%- include('partials/footer') -%>
-
-<script src="/public/js/main.js"></script>
-
-
-
-
-
-
+					<form action="/calculation/createCalculation" enctype="multipart/form-data" method="POST">
+						<div class="row gtr-uniform">
+			  
+							<div class="col-5 col-12-xsmall">
+								<!-- <label for="eventName" class="form-label">Event</label> -->
+								<input type="text" class="form-control" id="eventName" name="eventName" required placeholder="Enter an event name to start">
+							</div>
+			  
+							<div class="col-8 col-12-xsmall">
+								<label for="dateOfEvent" class="form-label">Date</label>
+								<input type="date" class="form-control" id="dateOfEvent" name="dateOfEvent" placeholder="Date" required>
+							</div>
+			  
+							<div class="col-8 col-12-xsmall">
+								<label for="hoursStart" class="form-label">Start Time</label>
+								<input type="time" class="form-control" id="hoursStart" name="hoursStart" required>								
+							</div>
+			  
+							<div class="col-8 col-12-xsmall">
+								<label for="hoursEnd" class="form-label">End Time</label>
+								<input type="time" class="form-control" id="hoursEnd" name="hoursEnd" placeholder="End Time" required>								
+							</div>
+			  
+							<div class="col-8 col-12-xsmall">
+								<label for="amountUSD" class="form-label">Per Hour Rate</label>
+								<input type="number" class="form-control" id="amountUSD" name="amountUSD" placeholder="In USD" required>								
+							</div>
+			  
+							<div class="col-12">
+								<ul class="actions">
+								  <li><input type="submit" value="Upload" class="primary"></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				        	    	
+				
+					<!-- Table Info -->
+					<section>
+						<div class="table-wrapper">
+							<table class="alt">
+								<thead>
+								  <tr>
+									<th>Name</th>
+    		                        <th>Date</th>
+    		                        <th class=" hidden">Start Time</th>
+    		                        <th class=" hidden">End Time</th>
+    		                        <th class=" hidden">Rate (USD)</th>
+    		                        <th>Calculate</th>
+    		                        <th>Total</th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <% for(var i=0; i<calculation.length; i++) {%>
+								  <tr>
+									  <a href="/calculation/<%= calculation[i]._id%>">
+									  <td class="eventName" id="eventName"><a href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
+									  <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
+									  <td class="startTime hidden"><%= calculation[i].hoursStart %></td>
+									  <td class="endTime hidden"><%= calculation[i].hoursEnd %></td>
+									  <td class="rate hidden"><%= calculation[i].amountUSD %></td>
+									  <td class="calcBtn"><button class="fa fa-calculator button primary"></button></td>
+									  <td id='total' class="total"><%= calculation[i].totalUSD %></td>
+								  </tr>
+								  <% } %>
+								</tbody>
+							  </table>
+						</div>
+					</section>
+				</div>
+			</div>
+        
+			
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<section>
+						<ul class="icons">
+							<li><a href="https://twitter.com/Jon_Divi" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/jondivi/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/jondivi" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="mailto:jonathan.divi@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy;2022, Jon Divi</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</section>
+				</div>
+			</footer>
+		</div>
+	</body>
+    <!-- Scripts -->
+	<script src="/public/js/main.js"></script>
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/browser.min.js"></script>
+    <script src="/public/js/breakpoints.min.js"></script>
+    <script src="/public/js/util.js"></script>
+    <script src="/public/js/mainDesign.js"></script>
+</html>

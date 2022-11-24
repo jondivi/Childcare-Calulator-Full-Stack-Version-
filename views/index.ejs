@@ -1,11 +1,85 @@
-<%- include('partials/header') -%>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Childcare Calculator</title>
+		<link
+		  rel="icon"
+		  type="image/png"
+		  sizes="32x32"
+		  href="/imgs/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="/public/css/main.css" />
+		<noscript><link rel="stylesheet" href="/public/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">	
+	  <!-- Wrapper -->
+		<div id="wrapper">
+		  <!-- Header -->
+			<header id="header">
+				<div class="inner">
+				<!-- Logo -->
+					<a href="/profile" class="logo"><span class="symbol" class="title">Childcare Calculator</span></a>
+					
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu"></a></li>
+						</ul>
+					</nav>
+	    		</div>
+			</header>
+			
 
-<main class="container">
-    <div class="row justify-content-around mt-5">
-        <a href="/login" class="col-3 btn btn-primary"> Login</a>
-        <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
-    </div>
-</main>
-    
+			<!-- Menu -->
+        	<section>
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="/login">Login</a></li>
+            			<li><a href="/signup">Sign Up</a></li>         
+					</ul>
+				</nav>
+        	</section>
 
-<%- include('partials/footer') -%>
+
+        	<!-- Main -->
+        	<div id="main">
+				<div class="inner">
+					<h3>About</h3>
+            		<p>This project was built for the purpose of assisting folks <em>(like me!)</em> that have difficulty with trying to remember how much time is spent at various locations <br>and how much money needs to be paid.</p>
+            		<br>
+            		<p>Please select the menu icon to begin using the application.</p>
+            		
+				</div>
+			</div>
+        		
+        
+			
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<section>
+						<ul class="icons">
+							<li><a href="https://twitter.com/Jon_Divi" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/jondivi/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/jondivi" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="mailto:jonathan.divi@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy;2022, Jon Divi</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</section>
+				</div>
+			</footer>
+		</div>
+	</body>
+    <!-- Scripts -->
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/browser.min.js"></script>
+    <script src="/public/js/breakpoints.min.js"></script>
+    <script src="/public/js/util.js"></script>
+    <script src="/public/js/mainDesign.js"></script>
+</html>

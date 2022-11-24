@@ -62,5 +62,5 @@ function howMuch(){
   console.log(totalForDay, ':total')
         
   //inserts information in the DOM so the user can view it
-  document.querySelector('#total').innerText= `On ${dayOfThWeek} we spent ${totalTime} hours at ${eventActivity}, for a total of  $${totalForDay}`
+  document.querySelector('#total').innerText= `${totalTime} hour(s) spent at ${eventActivity}, on ${dayOfThWeek}, for a total of  $${totalForDay}`
 }

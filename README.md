@@ -1,7 +1,7 @@
 # Introduction
 
 This is the README file for my 100 Hours Project....
-It was built to assist families that have difficulty like me with trying to remember how much time is spent at various locations (like the babysitter!) and how much money we have to pay.
+It was built to assist families that have difficulty (like me) with trying to remember how much time is spent at various locations (like the babysitter!) and how much money we have to pay.
 
 Developed by Jon Divi (with the help and support of the 100Devs community),implementing  MVC Architecture and "authorization" so folx can sign up and have a private and personal experience.  
 
@@ -9,7 +9,7 @@ Developed by Jon Divi (with the help and support of the 100Devs community),imple
 
 # Objectives
 
-- Build a MVP (Most Viable Product) that allows users to keep track of their hourly, paid family expenses.
+- Build a web application that allows users to keep track of their hourly, paid family expenses.
 
 ---
 
@@ -21,10 +21,21 @@ Developed by Jon Divi (with the help and support of the 100Devs community),imple
 
 # Packages/Dependencies used 
 
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
+- bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, 
+  validator
 
 ---
 
-# Things to add
+# CSS used 
 
-- everything!
+- A template from HTML5UP was used as I am not a designer, but it was modified quite a bit to fit the application in
+
+---
+
+# Optimizations
+- Add more text, explaining how the application works
+- Create a guest section that will allow users quicker access to a more basic version of the calculator function 
+  (No login/sign up needed but will not be able to give database storage access)
+- Update profile section so that multiple calculated amounts can be totaled and shown on that screen
+- Add a clear/refresh button to the profile and calculation pages
+- Refactor code so it appears much cleaner

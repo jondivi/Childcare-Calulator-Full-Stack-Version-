@@ -49,7 +49,12 @@
         		<div class="inner">
 					<div>
 						<p>Welcome back, <%= user.userName %>.</p>
-						<p>Directions for saving information:<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<ol>Directions for entering information:
+							<li>Name your entry <em>(e.g. Thursday date night, after-school care, school/work meeting).</em></li>
+							<li>Enter the date, start time, end time, and hourly rate.</li>
+							<li>Click <em>Upload</em> to enter it into the table below.</li>
+						</ol>
+						<!-- <p>Directions for entering information:<br>Name your entry <em>(e.g. Thursday date night, after-school care, school/work meeting)</em>, then enter the date, start time, end time, and hourly rate.<br>Then click Upload to enter it into the table below.</p> -->
 					</div>
 
 					<form action="/calculation/createCalculation" enctype="multipart/form-data" method="POST">
@@ -57,7 +62,7 @@
 			  
 							<div class="col-5 col-12-xsmall">
 								<!-- <label for="eventName" class="form-label">Event</label> -->
-								<input type="text" class="form-control" id="eventName" name="eventName" required placeholder="Enter an event name to start">
+								<input type="text" class="form-control" id="eventName" name="eventName" required placeholder="Type a name to start">
 							</div>
 			  
 							<div class="col-8 col-12-xsmall">
@@ -91,7 +96,10 @@
 				
 					<!-- Table Info -->
 					<section>
-						<p>Directions for saved data:<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<ul>Directions for saved data:
+							<li>Click the calculator icon to see the total cost.</li>
+							<li>To delete information, click the event name and then select Delete Entry.</li>
+						</ul>
 						<div class="table-wrapper">
 							<table class="alt">
 								<thead>

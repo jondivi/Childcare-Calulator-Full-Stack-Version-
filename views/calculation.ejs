@@ -47,12 +47,7 @@
         	<!-- Main -->
         	<div id="main">
         		<div class="inner">
-					<p>Directions:<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			
-        	    	<!-- Calculate Button -->
-        	    	<div>
-        	    	  <button id="calculcate" class="btn btn-primary">Calculate</button>
-        	    	</div>
+					<!-- <p>Directions:<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
 				
 					      <!-- database information -->
         	    	<table class="alt">
@@ -76,6 +71,40 @@
         	    	  </tbody>
         	    	</table>
 
+					<div class="row">
+						<div class="col-2 col-12-mobile">
+							<!-- Calculate Button -->
+							<button id="calculcate" class="btn btn-primary">Calculate</button>
+						</div>
+						<div class="col-4 col-12-mobile">
+							<!-- Delete Entry -->
+							<%if(calculation.user == user.id){ %>
+				  			<form
+				  			action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
+				  			method="POST"
+				  			class="col-3">
+				  			<button class="btn btn-primary" id="deleteBtn" !important type="submit"><strong>Delete entry</strong></button>
+				  			</form>
+				  			<%}%>
+						</div>
+					</div>
+
+        	    	<!-- <div class="col-6"> -->
+				  		<!-- Calculate Button
+				  		<button id="calculcate" class="btn btn-primary">Calculate</button> -->
+				    <!-- </div> -->
+				    <!-- <div class="col-6"> -->
+				  		<!-- Delete Entry -->
+				  		<!-- <%if(calculation.user == user.id){ %>
+				  		<form
+				  		action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
+				  		method="POST"
+				  		class="col-3">
+				  		<button class="btn btn-primary" id="deleteBtn" !important type="submit"><strong>Delete entry</strong></button>
+				  		</form>
+				  		<%}%>
+				    </div> -->
+
         	    	<div class="col-7 mt-5" >
         	    		<!-- Total appears here -->
         	    		<h2 id="total"></h2>
@@ -97,8 +126,8 @@
 							<li>&copy;2022, Jon Divi</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
 					</section>
-					<section>
-						<!-- Delete Entry -->
+					<!-- <section>
+						Delete Entry
 						<%if(calculation.user == user.id){ %>
 						<form
 						action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
@@ -107,7 +136,7 @@
 						<button class="btn btn-primary" id="deleteBtn" !important type="submit"><strong>Delete entry</strong></button>
 						</form>
 						<%}%>
-					</section>
+					</section> -->
 				</div>
 			</footer>
 		</div>

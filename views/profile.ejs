@@ -48,40 +48,36 @@
         	<div id="main">
         		<div class="inner">
 					<div>
-						<p>Welcome back, <%= user.userName %>.</p>
-						<ol>Directions for entering information:
-							<li>Name your entry <em>(e.g. Thursday date night, after-school care, school/work meeting).</em></li>
-							<li>Enter the date, start time, end time, and hourly rate.</li>
-							<li>Click <em>Upload</em> to enter it into the table below.</li>
-						</ol>
-						<!-- <p>Directions for entering information:<br>Name your entry <em>(e.g. Thursday date night, after-school care, school/work meeting)</em>, then enter the date, start time, end time, and hourly rate.<br>Then click Upload to enter it into the table below.</p> -->
+						<p>Welcome back <%= user.userName %>.</p>
 					</div>
-
+					<div>
+						<p>Fill out all fields and click Upload.</p>
+					</div>
+					
 					<form action="/calculation/createCalculation" enctype="multipart/form-data" method="POST">
 						<div class="row gtr-uniform">
-			  
-							<div class="col-5 col-12-xsmall">
+							<div class="col-4 col-12-xsmall">
 								<!-- <label for="eventName" class="form-label">Event</label> -->
-								<input type="text" class="form-control" id="eventName" name="eventName" required placeholder="Type a name to start">
+								<input type="text" class="form-control" id="eventName" name="eventName" required placeholder="Name">
 							</div>
 			  
-							<div class="col-8 col-12-xsmall">
+							<div class="col-9 col-12-xsmall">
 								<label for="dateOfEvent" class="form-label">Date</label>
 								<input type="date" class="form-control" id="dateOfEvent" name="dateOfEvent" placeholder="Date" required>
 							</div>
 			  
-							<div class="col-8 col-12-xsmall">
+							<div class="col-9 col-12-xsmall">
 								<label for="hoursStart" class="form-label">Start Time</label>
 								<input type="time" class="form-control" id="hoursStart" name="hoursStart" required>								
 							</div>
 			  
-							<div class="col-8 col-12-xsmall">
+							<div class="col-9 col-12-xsmall">
 								<label for="hoursEnd" class="form-label">End Time</label>
 								<input type="time" class="form-control" id="hoursEnd" name="hoursEnd" placeholder="End Time" required>								
 							</div>
 			  
-							<div class="col-8 col-12-xsmall">
-								<label for="amountUSD" class="form-label">Per Hour Rate</label>
+							<div class="col-9 col-12-xsmall">
+								<label for="amountUSD" class="form-label">Hourly Rate</label>
 								<input type="number" class="form-control" id="amountUSD" name="amountUSD" placeholder="In USD" required>								
 							</div>
 			  
@@ -96,11 +92,14 @@
 				
 					<!-- Table Info -->
 					<section>
-						<ul>Directions for saved data:
+						<!-- <p>To see your total cost, click the calculator icon.</p> -->
+						
+						<!-- <ul>Directions for saved data:
 							<li>Click the calculator icon to see the total cost.</li>
 							<li>To delete information, click the event name and then select Delete Entry.</li>
-						</ul>
+						</ul> -->
 						<div class="table-wrapper">
+							<p>Click the calculator icon to see your total cost.</p>
 							<table class="alt">
 								<thead>
 								  <tr>
@@ -128,6 +127,7 @@
 								  <% } %>
 								</tbody>
 							  </table>
+							  <p>* <em>Select the event name to delete your entry</em>.</p>
 						</div>
 					</section>
 				</div>

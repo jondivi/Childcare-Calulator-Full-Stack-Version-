@@ -24,24 +24,24 @@
 					<a href="/profile" class="logo"><span class="symbol" class="title">Childcare Calculator</span></a>
 					
 					<!-- Nav -->
-					<nav>
+					<!-- <nav>
 						<ul>
 							<li><a href="#menu"></a></li>
 						</ul>
 					</nav>
-	    		</div>
+	    		</div> -->
 			</header>
 			
 
 			<!-- Menu -->
-        	<section>
+        	<!-- <section>
 				<nav id="menu">
 					<h2>Menu</h2>
 					<ul>
 						<li><a href="/profile">Back</a></li>           
 					</ul>
 				</nav>
-        	</section>
+        	</section> -->
 
 
         	<!-- Main -->
@@ -72,13 +72,22 @@
         	    	</table>
 
 					<div class="row">
-						<div class="col-2 col-12-mobile">
+						<div class="col-12 col-12-mobile">
 							<!-- Calculate Button -->
-							<button id="calculcate" class="btn btn-primary">Calculate</button>
-						</div>
-						<div class="col-4 col-12-mobile">
+							<!-- <button id="calculcate" class="btn btn-primary">Calculate</button> -->
 							<!-- Delete Entry -->
 							<%if(calculation.user == user.id){ %>
+								<form
+								action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
+								method="POST"
+								class="col-3">
+								<button class="btn btn-primary" id="deleteBtn" !important type="submit"><strong>Delete entry</strong></button>
+								</form>
+								<%}%>
+						</div>
+						<!-- <div class="col-12 col-12-mobile"> -->
+							<!-- Delete Entry -->
+							<!-- <%if(calculation.user == user.id){ %>
 				  			<form
 				  			action="/calculation/deleteCalculation/<%= calculation.id %>?_method=DELETE"
 				  			method="POST"
@@ -86,7 +95,7 @@
 				  			<button class="btn btn-primary" id="deleteBtn" !important type="submit"><strong>Delete entry</strong></button>
 				  			</form>
 				  			<%}%>
-						</div>
+						</div> -->
 					</div>
 
         	    	<!-- <div class="col-6"> -->

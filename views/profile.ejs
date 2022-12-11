@@ -91,45 +91,37 @@
 				        	    	
 				
 					<!-- Table Info -->
-					<section>
-						<!-- <p>To see your total cost, click the calculator icon.</p> -->
-						
-						<!-- <ul>Directions for saved data:
-							<li>Click the calculator icon to see the total cost.</li>
-							<li>To delete information, click the event name and then select Delete Entry.</li>
-						</ul> -->
-						<div class="table-wrapper">
-							<p>Click the calculator icon to see your total cost.</p>
-							<table class="alt">
-								<thead>
-								  <tr>
-									<th>Name</th>
-    		                        <th>Date</th>
-    		                        <th class=" hidden">Start Time</th>
-    		                        <th class=" hidden">End Time</th>
-    		                        <th class=" hidden">Rate (USD)</th>
-    		                        <th>Calculate</th>
-    		                        <th>Total</th>
-								  </tr>
-								</thead>
-								<tbody>
-								  <% for(var i=0; i<calculation.length; i++) {%>
-								  <tr>
-									  <a href="/calculation/<%= calculation[i]._id%>">
-									  <td class="eventName" id="eventName"><a href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
-									  <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
-									  <td class="startTime hidden"><%= calculation[i].hoursStart %></td>
-									  <td class="endTime hidden"><%= calculation[i].hoursEnd %></td>
-									  <td class="rate hidden"><%= calculation[i].amountUSD %></td>
-									  <td class="calcBtn"><button class="fa fa-calculator button primary"></button></td>
-									  <td id='total' class="total"><%= calculation[i].totalUSD %></td>
-								  </tr>
-								  <% } %>
-								</tbody>
-							  </table>
-							  <p>* <em>Select the event name to delete your entry</em>.</p>
-						</div>
-					</section>
+					<div class="table-wrapper">
+						<p>Click the calculator icon to see your total cost.</p>
+						<table class="alt">
+							<thead>
+							  <tr>
+								<th>Name</th>
+    		                    <th>Date</th>
+    		                    <th class=" hidden">Start Time</th>
+    		                    <th class=" hidden">End Time</th>
+    		                    <th class=" hidden">Rate (USD)</th>
+    		                    <th>Calculate</th>
+    		                    <th>Total</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <% for(var i=0; i<calculation.length; i++) {%>
+							  <tr>
+								  <a href="/calculation/<%= calculation[i]._id%>">
+								  <td class="eventName" id="eventName"><a href="/calculation/<%= calculation[i]._id%>"><%= calculation[i].eventName %></a></td>
+								  <td class="weekDay"><%= calculation[i].dateOfEvent %></td>
+								  <td class="startTime hidden"><%= calculation[i].hoursStart %></td>
+								  <td class="endTime hidden"><%= calculation[i].hoursEnd %></td>
+								  <td class="rate hidden"><%= calculation[i].amountUSD %></td>
+								  <td class="calcBtn"><button class="fa fa-calculator button primary"></button></td>
+								  <td id='total' class="total"><%= calculation[i].totalUSD %></td>
+							  </tr>
+							  <% } %>
+							</tbody>
+						  </table>
+						  <p>* <em>Select the event name to delete your entry</em>.</p>
+					</div>
 				</div>
 			</div>
         

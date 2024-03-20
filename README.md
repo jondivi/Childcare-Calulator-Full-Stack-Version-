@@ -1,3 +1,6 @@
+![calc](https://github.com/jondivi/Childcare-Calulator-Full-Stack-Version-/assets/98039686/238d5282-c7c2-45ce-954e-1ca5d156973c)
+
+
 # Introduction
 
 This is the README file for my 100 Hours Project....
